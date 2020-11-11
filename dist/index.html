@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>To-Do List</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/DateTimePicker.css" />
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="header__inner">
+				<div class="header__logo">
+					<img src="img/logo.svg" alt="To-Do List">
+				</div>
+				<a class="header__btn popup-modal" href="#modal"></a>
+			</div>
+			<div class="btn-menu">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</header>
+	<main class="main">
+		<div class="main__cover">
+		</div>
+		<div class="container">
+			<div class="main__inner">
+				<nav class="navbar">
+					<ul class="navbar__list">
+						<li class="navbar__item">
+							<button class="navbar__btn navbar__new">Новые</button>
+						</li>
+						<li class="navbar__item">
+							<button class="navbar__btn navbar__done">Выполненные</button>
+						</li>
+						<li class="navbar__item">
+							<button class="navbar__btn navbar__all">Все</button>
+						</li>
+						<li class="navbar__item navbar__priority">
+							<button class="navbar__btn-priority">Приоритет</button>
+						</li>
+					</ul>
+					<div class="navbar__line"></div>
+					<ul class="navbar__priority priority">
+						<li class="priority__item">
+							<button class="navbar__btn priority__btn">Высокий</button>
+						</li>
+						<li class="priority__item">
+							<button class="navbar__btn priority__btn">Средний</button>
+						</li>
+						<li class="priority__item">
+							<button class="navbar__btn priority__btn">Низкий</button>
+						</li>
+					</ul>
+				</nav>
+				<div class="tasks">
+					<ul class="tasks__list">
+						<li class="tasks__header task">
+							<div class="task__labels">
+								
+							</div>
+							<div class="task__name">
+								Название
+							</div>
+							<div class="task__deadline">
+								Дедлайн
+							</div>
+							<div class="task__priority">
+								Приоритет
+							</div>
+						</li>
+						<li class="tasks__item task">
+							<div class="task__labels">
+								<img class="task__status" src="img/exclude.svg" alt="">
+								<div class="task__color" style="background-color: #F2C94C;"></div>
+							</div>
+							<div class="task__name">
+								<div class="task__name-title">
+									<a href="task.html">Сходить в магазин</a>
+								</div>
+								<div class="task__name-descr">
+									Купить следующий список продуктов: Молоко, огурцы, рыбу и блок сникерсов
+								</div>
+							</div>
+							<div class="task__deadline">
+								29.09.2020
+								<span>18:32</span>
+							</div>
+							<div class="task__priority">
+								Высокий
+							</div>
+							<a class="task__edit" href="#"></a>
+						</li>
+						<li class="tasks__item task">
+							<div class="task__labels">
+								<img class="task__status" src="img/exclude.svg" alt="">
+								<div class="task__color" style="background-color: #EB5757;"></div>
+							</div>
+							<div class="task__name">
+								<div class="task__name-title">
+									<a href="#">Помыть машину</a>
+								</div>
+								<div class="task__name-descr">
+									...
+								</div>
+							</div>
+							<div class="task__deadline">
+								29.09.2020
+								<span>19:17</span>
+							</div>
+							<div class="task__priority">
+								Средний
+							</div>
+							<a class="task__edit" href="#"></a>
+						</li>
+						<li class="tasks__item task">
+							<div class="task__labels">
+								<img class="task__status" src="img/oval.svg" alt="">
+								<div class="task__color" style="background-color: #6FCF97;"></div>
+							</div>
+							<div class="task__name">
+								<div class="task__name-title">
+									<a href="#">Ужин</a>
+								</div>
+								<div class="task__name-descr">
+									Приготовить лазанью и Карбанару
+								</div>
+							</div>
+							<div class="task__deadline">
+								29.09.2020
+								<span>20:50</span>
+							</div>
+							<div class="task__priority">
+								Низкий
+							</div>
+							<a class="task__edit" href="#"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<div id="modal" class="white-popup-block mfp-hide">
+		<div class="new">
+			<div class="new__dismiss">
+				<a class="popup-modal-dismiss" href="#">
+					
+				</a>
+			</div>
+			<div class="new__title">
+				Создание задачи
+			</div>
+			<form class="new__form">
+				<div class="new__fields">
+					<label class="new__name">
+						Название
+						<input type="text">
+					</label>
+					<label class="new__deadline">
+						Дедлайн
+						<input type="text" data-field="datetime" readonly>
+					</label>
+					<label class="new__priority">
+						Приоритет
+						<div class="select">
+							<a href="javascript:void(0);" class="slct">Высокий</a>
+							<ul class="drop">
+								<li class="active">Высокий</li>
+								<li>Средний</li>
+								<li>Низкий</li>
+							</ul>
+							<input type="hidden" id="select" value="Высокий">
+						</div>
+					</label>
+					<label class="new__color">
+						Метка
+						<div class="new__color-box">
+  						<input type="color" id="colorpicker" name="color" value="#BADA55"> 
+						</div>
+						<input type="text" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#BADA55" id="hexcolor">
+					</label>
+					<label class="new__descr">
+						Описание
+						<textarea></textarea>
+					</label>
+				</div>
+				<div class="new__line"></div>
+				<div class="new__buttons">
+					<a class="popup-modal-dismiss" href="#">Отменить</a>
+					<button class="new__create-btn popup-modal-dismiss" type="submit">
+						Создать
+					</button>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<div id="dtBox"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+	<script src="js/DateTimePicker.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

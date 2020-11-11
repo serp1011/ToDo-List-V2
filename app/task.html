@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>To-Do List</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/DateTimePicker.css" />
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="header__inner">
+				<div class="header__logo">
+					<img src="img/logo.svg" alt="To-Do List">
+				</div>
+				<a class="header__btn popup-modal" href="#modal"></a>
+			</div>
+			<div class="btn-menu">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</header>
+	<main class="main">
+		<div class="main__cover">
+		</div>
+		<div class="container">
+			<div class="main__inner">
+				<nav class="navbar">
+					<ul class="navbar__list">
+						<li class="navbar__item">
+							<button class="navbar__btn navbar__new">Новые</button>
+						</li>
+						<li class="navbar__item">
+							<button class="navbar__btn navbar__done">Выполненные</button>
+						</li>
+						<li class="navbar__item">
+							<button class="navbar__btn navbar__all">Все</button>
+						</li>
+						<li class="navbar__item navbar__priority">
+							<button class="navbar__btn-priority">Приоритет</button>
+						</li>
+					</ul>
+					<div class="navbar__line"></div>
+					<ul class="navbar__priority priority">
+						<li class="priority__item">
+							<button class="navbar__btn priority__btn">Высокий</button>
+						</li>
+						<li class="priority__item">
+							<button class="navbar__btn priority__btn">Средний</button>
+						</li>
+						<li class="priority__item">
+							<button class="navbar__btn priority__btn">Низкий</button>
+						</li>
+					</ul>
+				</nav>
+				<div class="viewer">
+					<div class="viewer__header">
+						<a href="index.html" class="viewer__back"></a>
+						<div class="viewer__title">Сходить в магазин</div>
+						<button class="viewer__btn viewer__done"><span>Выполнена</span></button>
+						<button class="viewer__btn viewer__del"><span>Удалить</span></button>
+						<button class="viewer__btn viewer__edit"><span>Редактировать</span></button>
+					</div>
+					<div class="viewer__line"></div>
+					<div class="viewer__info">
+						<div class="viewer__info-item viewer__status">
+							<div class="viewer__label">Статус задачи</div>
+							<div class="viewer__value">Выполнена</div>
+						</div>
+						<div class="viewer__info-item viewer__priority">
+							<div class="viewer__label">Приоритет</div>
+							<div class="viewer__value">Высокий</div>
+						</div>
+						<div class="viewer__info-item viewer__deadline">
+							<div class="viewer__label">Дедлайн</div>
+							<div class="viewer__value">29.09.2020, 18:32</div>
+						</div>
+						<div class="viewer__info-item viewer__color">
+							<div class="viewer__label">Метка</div>
+							<div class="viewer__value"></div>
+						</div>
+					</div>
+					<div class="viewer__text">
+						<p>Огибающая семейства поверхностей, конечно, естественно трансформирует интеграл по бесконечной области. Однако не все знают, что ортогональный определитель правомочен. Функция B(x,y) поддерживает интеграл от функции комплексной переменной, откуда следует доказываемое равенство.</p>
+						<p>Линейное уравнение категорически масштабирует линейно зависимый критерий сходимости Коши, что неудивительно. Геометрическая прогрессия, как следует из вышесказанного, детерменирована. Интеграл Гамильтона оправдывает интеграл от функции, имеющий конечный разрыв. По сути, прямоугольная матрица оправдывает аксиоматичный интеграл от функции, обращающейся в бесконечность вдоль линии, при этом, вместо 13 можно взять любую другую константу.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<div id="modal" class="white-popup-block mfp-hide">
+		<div class="new">
+			<div class="new__dismiss">
+				<a class="popup-modal-dismiss" href="#">
+					
+				</a>
+			</div>
+			<div class="new__title">
+				Создание задачи
+			</div>
+			<form class="new__form">
+				<div class="new__fields">
+					<label class="new__name">
+						Название
+						<input type="text">
+					</label>
+					<label class="new__deadline">
+						Дедлайн
+						<input type="text" data-field="datetime" readonly>
+					</label>
+					<label class="new__priority">
+						Приоритет
+						<div class="select">
+							<a href="javascript:void(0);" class="slct">Высокий</a>
+							<ul class="drop">
+								<li class="active">Высокий</li>
+								<li>Средний</li>
+								<li>Низкий</li>
+							</ul>
+							<input type="hidden" id="select" value="Высокий">
+						</div>
+					</label>
+					<label class="new__color">
+						Метка
+						<div class="new__color-box">
+  						<input type="color" id="colorpicker" name="color" value="#BADA55"> 
+						</div>
+						<input type="text" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#BADA55" id="hexcolor">
+					</label>
+					<label class="new__descr">
+						Описание
+						<textarea></textarea>
+					</label>
+				</div>
+				<div class="new__line"></div>
+				<div class="new__buttons">
+					<a class="popup-modal-dismiss" href="#">Отменить</a>
+					<button class="new__create-btn popup-modal-dismiss" type="submit">
+						Создать
+					</button>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<div id="dtBox"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+	<script src="js/DateTimePicker.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
